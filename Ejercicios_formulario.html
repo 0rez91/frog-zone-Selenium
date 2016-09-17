@@ -1,0 +1,123 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- Contenido -->
+
+<script type="text/javascript">
+	function formulario(form){
+		ejercicio1(form.textarea.value);
+		ejercicio2(form.text1.value, form.text2.value, form.text3.value);
+		ejercicio3(form.radiobutton);
+	}
+
+	// El primer ejercicio consiste en recuperar los parrafos y unirlos todos en el textarea
+	function ejercicio1(texto){
+		var parrafos = document.getElementsByClassName("parrafo");
+		var parrafos_unidos = parrafos[0].innerHTML + parrafos[1].innerHTML + parrafos[2].innerHTML;
+		if(texto ==  parrafos_unidos){
+			document.getElementById("ejercicio1").style.backgroundColor = "green";
+		}else{
+			console.log("No coincide el texto");
+		}
+	}
+
+	// Ejercicio 2: Reunir todos los elementos de la lista y ponerlos en orden en sus respectivos textbox
+	function ejercicio2(elem_list1, elem_list2, elem_list3){
+		elementos_lista = document.getElementsByClassName("list-group-item");
+		if (elem_list1 == elementos_lista[0].innerHTML && elem_list2 == elementos_lista[1].innerHTML && elem_list3 == elementos_lista[2].innerHTML) {
+			document.getElementById("ejercicio2").style.backgroundColor = "green";
+		}else{
+			console.log("No coincide el texto");
+		}
+	}
+
+	//Ejercicio 3: Marcar un radio button y un checkbox.
+	function ejercicio3(radio_button){
+		
+	        if( radio_button[1].checked ) {
+	            document.getElementById("ejercicio3").style.backgroundColor = "green";
+	        }else{
+	        	console.log("No coincide el texto");
+	        }
+	}
+	//Función para redimensionar el textarea
+	function auto_grow(element) {
+	    element.style.height = "5px";
+	    element.style.height = (element.scrollHeight)+"px";
+	}
+
+
+</script>
+<style type="text/css">
+	#selenium_exercise{
+		border: 1px solid #ccc;
+		box-shadow: 0px 0px 10px #ccc;
+	}
+	#resultado > div{
+		background: red;
+		padding: 5px;
+		border: white 5px solid;
+	}
+	textarea {
+		width: 100%;
+	    resize: none;
+	    overflow: hidden;
+	    min-height: 50px;
+	    max-height: 100px;
+	}
+</style>
+<div id="selenium_exercise">
+	
+	
+	
+	<ul class="list-group" id="lista-elementos">
+		<li class="list-group-item">Elemento 1</li>
+		<li class="list-group-item">Elemento 2</li>
+		<li class="list-group-item">Elemento 3</li>
+	</ul>
+	<p class="parrafo col-md-4">LLorem fistrum qui no puedor tempor por la gloria de mi madre te voy a borrar el cerito fistro la caidita ese que llega consequat mamaar. Commodo velit velit a gramenawer dolore ut voluptate. Llevame al sircoo ahorarr está la cosa muy malar irure. Apetecan ese pedazo de ut va usté muy cargadoo incididunt. Commodo va usté muy cargadoo irure occaecat apetecan. Irure cillum pecador dolore officia. Sed a wan papaar papaar llevame al sircoo magna.</p>
+
+	<p class="parrafo col-md-4">Ut aliqua te va a hasé pupitaa nostrud no te digo trigo por no llamarte Rodrigor ad dolor. Quis te voy a borrar el cerito consequat caballo blanco caballo negroorl ad duis occaecat no puedor velit tiene musho peligro. Sexuarl incididunt qué dise usteer occaecat et a gramenawer laboris laboris no puedor se calle ustée. Dolore duis está la cosa muy malar de la pradera labore incididunt llevame al sircoo cillum reprehenderit. Ex diodenoo cillum ut me cago en tus muelas se calle ustée laboris a gramenawer exercitation ut. Va usté muy cargadoo diodenoo ahorarr amatomaa a gramenawer. Aliquip diodenoo diodeno veniam ahorarr consectetur de la pradera sed. Al ataquerl está la cosa muy malar consequat consectetur dolore.</p>
+
+	<p class="parrafo col-md-4">Fistro exercitation no puedor pupita ullamco irure a gramenawer dolor reprehenderit. Benemeritaar nostrud pupita se calle ustée. Esse quietooor apetecan reprehenderit va usté muy cargadoo mamaar no te digo trigo por no llamarte Rodrigor apetecan magna está la cosa muy malar nisi. Está la cosa muy malar mamaar por la gloria de mi madre ut de la pradera nisi. Velit se calle ustée nisi jarl cillum nisi va usté muy cargadoo caballo blanco caballo negroorl aliquip cillum. Aliqua ut a gramenawer por la gloria de mi madre aliquip se calle ustée ad.</p>
+	<hr />
+	<div class="form-group">
+		<form action="" name="selenium" method="GET">
+			<label>Agrupar parrafos</label>
+			<textarea name="textarea" class="form-control" onkeyup="auto_grow(this)"></textarea><br />
+			<div class="form-inline">
+				<div class="form-group">
+				    <label>Textbox1</label>
+					<input type="text" name="text1" class="form-control" placeholder="Elemento de la lista 1">
+				 </div>
+				 <div class="form-group">
+				    <label>Textbox2</label>
+					<input type="text" name="text2" class="form-control" placeholder="Elemento de la lista 2">
+				 </div>
+				 <div class="form-group">
+				    <label>Textbox3</label>
+					<input type="text" name="text3" class="form-control" placeholder="Elemento de la lista 3">
+				 </div>
+			</div>
+			<hr />
+			<div class="form-inline">
+				<label class="radio-inline"><input type="radio" name="radiobutton" value="1">Esta no</label>
+				<label class="radio-inline"><input type="radio" name="radiobutton" value="2">Elige esta</label>
+				<label class="radio-inline"><input type="radio" name="radiobutton" value="3">Esta no</label>
+			</div>
+			<hr />
+			<input type="button" class="btn btn-default" name="button" value="Enviar" onclick="formulario(this.form)">
+		</form>
+	</div>
+	<div class ="row" id="resultado">
+		<div class="col-md-4 text-center" id="ejercicio1" >Ejercicio 1</div>
+		<div class="col-md-4 text-center" id="ejercicio2" >Ejercicio 2</div>
+		<div class="col-md-4 text-center" id="ejercicio3" >Ejercicio 3</div>
+	</div>
+</div>
